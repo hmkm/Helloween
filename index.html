@@ -91,13 +91,16 @@
     </script>
 
     <img id="img" src="happy.png" width="0" height="0" />
+    <script>
+        document.getElementById("img").src = "scared.png";
+    </script>
 
     <script type="text/javascript" src="processor.js"></script>
 
     <script>
         document.getElementById("button").onclick = function () {
             console.log("ばははははｈばばば");
-            document.getElementById("img").src = "scared.png";
+            //document.getElementById("img").src = "scared.png";
             //video: { facingMode: 'user' };
         };
     </script>
