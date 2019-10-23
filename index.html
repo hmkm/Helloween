@@ -36,6 +36,10 @@
             background: #2FCDB4;
             display: block;
         }
+
+        #button{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -102,17 +106,16 @@
     <script>
         var p = document.getElementById('button');
         function hogehoge() {
-            chgImg();
-            //var camm = document.getElementById('video');
-            //camm.facingMode = 'user';
+            var camm = document.getElementById('video');
+            camm.facingMode = 'user';
         }
 
         p.attachEvent('onclick', hogehoge);
 
-        function chgImg() {
-            var png = this.canvas.toDataURL();
-            document.getElementById("newImg").src = png;
-        }
+        //function chgImg() {
+        //    var png = this.canvas.toDataURL();
+        //    document.getElementById("newImg").src = png;
+        //}
     </script>
 
 </body>
