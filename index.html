@@ -90,9 +90,21 @@
         })();
     </script>
 
-    <img id="img" src="happy.png" width="0" height="0" />
+    <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
     <script>
-        document.getElementById("img").src = "scared.png";
+        var num = 2;
+
+        function chgImg() {
+
+            if (num % 2 == 0) {
+                document.getElementById("img").src = "scared.png";
+                num++;
+            } else {
+                document.getElementById("img").src = "happy.png";
+                num++;
+            }
+
+        }
     </script>
 
     <script type="text/javascript" src="processor.js"></script>
