@@ -22,9 +22,8 @@
         }
 
         video {
-            width: 100%;
-            height: 100%;
-            opacity: 0;
+            width: 0.1%;
+            height: 0.1%;
             /*object-fit: fill;*/
         }
 
@@ -34,12 +33,15 @@
         }
 
         #canvas {
-            background: #2FCDB4;
+            /*background: #2FCDB4;*/
             display: block;
         }
 
-        #button{
+        #button {
+            display: block;
             cursor: pointer;
+            width:50px;
+            height:50px;
         }
     </style>
 </head>
@@ -92,7 +94,14 @@
 
     <script type="text/javascript" src="processor.js"></script>
 
-    <button id="download">download</button>
+    <script>
+        document.getElementById("button").onclick = function () {
+            var video = document.getElementById("video");
+            video: { facingMode: 'user' };
+        };
+    </script>
+
+    <!--<button id="download">download</button>-->
 
     <!--<script>
         document.getElementById("download").onclick = (event) => {
@@ -104,7 +113,7 @@
             link.click();
         }
     </script>-->
-    <script>
+    <!--<script>
         var p = document.getElementById('button');
         function hogehoge() {
             var camm = document.getElementById('video');
@@ -117,7 +126,7 @@
         //    var png = this.canvas.toDataURL();
         //    document.getElementById("newImg").src = png;
         //}
-    </script>
+    </script>-->
 
 </body>
 </html>
