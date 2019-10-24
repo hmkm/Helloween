@@ -43,10 +43,15 @@
             width:50px;
             height:50px;
         }
+
+        img.button:active{
+            position:relative;
+            top:3px;
+        }
     </style>
 </head>
 <body>
-    <img id="button" src="button.png" width="50" height="50" />
+    <img id="button" class="button" src="button.png" width="50" height="50" ontouchstart=""/>
 
     <video id="video" autoplay playsinline="true"></video>
 
