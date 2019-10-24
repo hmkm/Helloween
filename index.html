@@ -138,10 +138,10 @@
         function downloadImage() {
             var png = canvasData.toDataURL("image/png");   // PNG形式
             document.getElementById("newImg").src = png;
-            //var event = document.createEvent("MouseEvents");
-            //event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            //var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
-            //a.dispatchEvent(event);
+            var event = document.createEvent("MouseEvents");
+            event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+            a.dispatchEvent(event);
         }
         //}
     </script>
@@ -149,6 +149,10 @@
     <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
     <script>
         var num = 2;
+
+        if (num >= 100) {
+            num = 0;
+        }
 
         function chgImg() {
 
