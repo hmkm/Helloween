@@ -123,8 +123,7 @@
 
 
         var canvasData = null;
-        var event = document.createEvent("MouseEvents");
-        event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
 
         // html2canvas実行
         function screenshotHtml() {
@@ -139,11 +138,14 @@
         // 画像のダウンロード
         function downloadImage() {
             var dataUrl = canvasData.toDataURL("image/png");   // canvasをPNG形式に変換
-
-            var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
-            a.href = dataUrl; //href -- 指定したURLへ移動
-            a.download = 'helloween_A.png';
-            a.dispatchEvent(event);
+            //イベント作成
+            var event = document.createEvent("MouseEvents");
+            event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a"); //a要素を作成
+            a.href = dataUrl; //href -- 指定したURLへ移動　ダウンロード用URLセット
+            a.download = 'helloween_A.png'; //ファイル名セット
+            a.dispatchEvent(event); //イベント発火
+            console.log("------------------");
         }
     </script>
 
