@@ -118,22 +118,7 @@
                 (!window.requestAnimationFrame) ? setTimeout(sizing, 300) : window.requestAnimationFrame(sizing);
             });
         })();
-    </script>
 
-    <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
-    <script>
-        var num = 2;
-
-        function chgImg() {
-
-            if (num % 2 == 0) {
-                document.getElementById("img").src = "scared.png";
-                num++;
-            } else {
-                document.getElementById("img").src = "happy.png";
-                num++;
-            }
-        }
 
         var canvasData = null;
 
@@ -159,13 +144,29 @@
         }
     </script>
 
+    <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
+    <script>
+        var num = 2;
+
+        function chgImg() {
+
+            if (num % 2 == 0) {
+                document.getElementById("img").src = "scared.png";
+                num++;
+            } else {
+                document.getElementById("img").src = "happy.png";
+                num++;
+            }
+        }
+    </script>
+
     <script type="text/javascript" src="processor.js"></script>
 
     <script>
         document.getElementById("button").onclick = function () {
             //console.log("ばははははｈばばば");
-            chgImg();
-            revCamera();
+            //chgImg();
+            //revCamera();
             screenshotHtml();
             //document.getElementById("img").src = "scared.png";
             //video: { facingMode: 'user' };
