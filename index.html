@@ -24,7 +24,7 @@
         video {
             width: 0.1%;
             height: 0.1%;
-            /*object-fit: fill;*/
+            object-fit: fill;
         }
 
         #wrap {
@@ -134,6 +134,29 @@
                 num++;
             }
         }
+
+        var canvasData = null;
+
+        // html2canvas実行
+        function screenshotHtml() {
+            html2canvas(document.body, {
+                onrendered: function (canvas) {
+                    document.body.appendChild(canvas);
+                    canvasData = canvas;
+                }
+            });
+        }
+
+        // 画像のダウンロード
+        function downloadImage(canvas) {
+            var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
+            var event = document.createEvent("MouseEvents");
+            event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+            a.href = dataUrl;
+            a.download = "html2canvas動作確認の出力結果イメージ";
+            a.dispatchEvent(event);
+        }
     </script>
 
     <script type="text/javascript" src="processor.js"></script>
@@ -143,6 +166,7 @@
             //console.log("ばははははｈばばば");
             chgImg();
             revCamera();
+            screenshotHtml();
             //document.getElementById("img").src = "scared.png";
             //video: { facingMode: 'user' };
         };
