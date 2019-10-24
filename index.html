@@ -70,9 +70,25 @@
 
         function revCamera() {
             if (num % 2 == 0) {
-                constraints = { video: { facingMode: 'user' } }
+                constraints = { video: { facingMode: 'user' } };
+                //  カメラの映像を取得
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then((stream) => {
+                        video.srcObject = stream;
+                    })
+                    .catch((err) => {
+                        window.alert(err.name + ': ' + err.message);
+                    });
             }else {
-                constraints = { video: { facingMode: 'environment' } }
+                constraints = { video: { facingMode: 'environment' } };
+                //  カメラの映像を取得
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then((stream) => {
+                        video.srcObject = stream;
+                    })
+                    .catch((err) => {
+                        window.alert(err.name + ': ' + err.message);
+                    });
 
             }
         }
