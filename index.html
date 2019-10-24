@@ -141,8 +141,8 @@
             var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
 
             var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
-            a.href = dataUrl;
-            a.download = 'helloween_A.png';
+            a.href = dataUrl; //href -- 指定したURLへ移動
+            //a.download = 'helloween_A.png';
             a.dispatchEvent(event);
         }
     </script>
