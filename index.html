@@ -144,6 +144,8 @@
         //    a.download = "html2canvas動作確認の出力結果イメージ";
         //    a.dispatchEvent(event);
         //}
+        var canvas = document.getElementById('canvas');
+
         function screenShotCanvas()
         {
             document.downloadImage = () => {
@@ -183,8 +185,9 @@
 
     <script>
         document.getElementById("button").onclick = function () {
-            screenshotHtml();
-            downloadImage();
+            //screenshotHtml();
+            //downloadImage();
+            screenShotCanvas();
             //let promise = new Promise(() => {
             //    screenshotHtml();
             //})
