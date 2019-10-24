@@ -105,20 +105,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 
     <script>
-        //(function () {
-        //    var canvas = document.getElementById('canvas');
-        //    var container = document.getElementById('wrap');
-        //    sizing();
+        (function () {
+            var canvas = document.getElementById('canvas');
+            var container = document.getElementById('wrap');
+            sizing();
 
-        //    function sizing() {
-        //        canvas.height = container.offsetHeight;
-        //        canvas.width = container.offsetWidth;
-        //    }
+            function sizing() {
+                canvas.height = container.offsetHeight;
+                canvas.width = container.offsetWidth;
+            }
 
-        //    window.addEventListener('resize', function () {
-        //        (!window.requestAnimationFrame) ? setTimeout(sizing, 300) : window.requestAnimationFrame(sizing);
-        //    });
-        //})();
+            window.addEventListener('resize', function () {
+                (!window.requestAnimationFrame) ? setTimeout(sizing, 300) : window.requestAnimationFrame(sizing);
+            });
+        })();
 
 
 
