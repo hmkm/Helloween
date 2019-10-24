@@ -137,8 +137,8 @@
         }
 
         // 画像のダウンロード
-        function downloadImage(canvas) {
-            var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
+        function downloadImage() {
+            var dataUrl = canvasData.toDataURL("image/png");   // canvasをPNG形式に変換
 
             var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
             a.href = dataUrl; //href -- 指定したURLへ移動
@@ -170,9 +170,10 @@
     <script type="text/javascript" src="processor.js"></script>
 
     <script>
-        //screenshotHtml();
+        screenshotHtml();
 
         document.getElementById("button").onclick = function () {
+
             downloadImage();
 
             //let promise = new Promise(() => {
