@@ -171,12 +171,13 @@
             }
         }
 
+        //クリックで画面キャプチャ
         document.getElementById("button").onclick = (event) => {
             let canvas = document.getElementById("canvas");
 
             let link = document.createElement("a");
             link.href = canvas.toDataURL("image/png");
-            link.download = "test.png";
+            link.download = "helloween_A.png";
             link.click();
         }
 
@@ -201,7 +202,44 @@
 
     <script type="text/javascript" src="processor.js"></script>
 
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="//code.createjs.com/easeljs-0.8.1.min.js"></script>
+    <script type="text/javascript" src="//code.createjs.com/preloadjs-0.6.1.min.js"></script>
+    <script>
 
+        $(document).ready(function () {
+            // 画像を読み込み
+            var loader = new createjs.LoadQueue();
+            loader.on("complete", completePreload, this);
+            loader.loadManifest([{ id: "button", src: "button.png" }]);
+        });
+
+            // 画像読み込み完了
+        var completePreload = function (event)
+        {
+            // 画像インスタンス
+            var image = event.target.getResult("button");
+
+            // canvasを取得
+            var stage = new createjs.Stage("canvas");
+
+            // 画像をセット
+            var bitmap = new createjs.Bitmap(image);
+            bitmap.foo = 'bar';
+            //bitmap.addEventListener("click", function (event) { alert(event.target.foo); });
+            bitmap.addEventListener("click", function (event) {
+                let canvas = document.getElementById("canvas");
+
+                let link = document.createElement("a");
+                link.href = canvas.toDataURL("image/png");
+                link.download = "helloween_A.png";
+                link.click(); });
+            stage.addChild(bitmap);
+
+            // canvas更新
+            stage.update();
+        }
+    </script>
     <!--<button id="download">download</button>-->
     <!--<script>
         document.getElementById("download").onclick = (event) => {
