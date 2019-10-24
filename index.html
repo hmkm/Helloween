@@ -138,7 +138,6 @@
         function downloadImage(canvas) {
             var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
             var event = document.createEvent("MouseEvents");
-            var newImg = document.getElementById("newImg");
             event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
             var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
             a.href = dataUrl;
@@ -177,7 +176,7 @@
             })
 
             promise.then(() => {
-                downloadImage(newImg);
+                downloadImage();
             })
             //console.log("ばははははｈばばば");
             //chgImg();
@@ -186,8 +185,6 @@
             //video: { facingMode: 'user' };
         };
     </script>
-
-    <div><img id="newImg"></div>
 
     <!--<button id="download">download</button>-->
     <!--<script>
