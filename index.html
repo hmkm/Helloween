@@ -122,42 +122,27 @@
 
 
 
-        //var canvasData = null;
+        var canvasData = null;
 
-        //// html2canvas実行
-        //function screenshotHtml() {
-        //    html2canvas(document.body, {
-        //        onrendered: function (canvas) {
-        //            document.body.appendChild(canvas);
-        //            canvasData = canvas;
-        //        }
-        //    });
-        //}
-
-        //// 画像のダウンロード
-        //function downloadImage(canvas) {
-        //    var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
-        //    var event = document.createEvent("MouseEvents");
-        //    event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        //    var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
-        //    a.href = dataUrl;
-        //    a.download = "html2canvas動作確認の出力結果イメージ";
-        //    a.dispatchEvent(event);
-        //}
-        var canvas = document.getElementById('canvas');
-
-        function screenShotCanvas()
-        {
-            document.downloadImage = () => {
-                //const tableElement = document.querySelector('#table');
-                const canvasElement = document.querySelector('#canvas');
-                canvasElement.src = canvas.toDataURL();
-                //const linkElement = document.querySelector('#dl-link');
-
-                html2canvas(document.body).then(function (canvas) {
+        // html2canvas実行
+        function screenshotHtml() {
+            html2canvas(document.body, {
+                onrendered: function (canvas) {
                     document.body.appendChild(canvas);
-                });
-            }
+                    canvasData = canvas;
+                }
+            });
+        }
+
+        // 画像のダウンロード
+        function downloadImage(canvas) {
+            var dataUrl = canvasData.toDataURL("image/png");   // PNG形式
+            var event = document.createEvent("MouseEvents");
+            event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+            a.href = dataUrl;
+            a.download = "html2canvas動作確認の出力結果イメージ";
+            a.dispatchEvent(event);
         }
     </script>
 
