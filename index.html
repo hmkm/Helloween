@@ -70,8 +70,8 @@
 
         function revCamera() {
             if (num % 2 == 0) {
-                constraints = { video: { facingMode: 'user' } };
-                //  カメラの映像を取得
+                constraints = { video: { facingMode: 'environment' } };
+                //  カメラの映像をあっち向きに
                 navigator.mediaDevices.getUserMedia(constraints)
                     .then((stream) => {
                         video.srcObject = stream;
@@ -80,8 +80,8 @@
                         window.alert(err.name + ': ' + err.message);
                     });
             }else {
-                constraints = { video: { facingMode: 'environment' } };
-                //  カメラの映像を取得
+                constraints = { video: { facingMode: 'user' } };
+                //  カメラの映像をこっち向きに
                 navigator.mediaDevices.getUserMedia(constraints)
                     .then((stream) => {
                         video.srcObject = stream;
