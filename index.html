@@ -44,8 +44,9 @@
         #button {
             display: block;
             cursor: pointer;
-            width: 50px;
-            height: 50px;
+            position:center;
+            width: 100px;
+            height: 100px;
         }
 
         img.button:active {
@@ -228,7 +229,7 @@
             bitmap.foo = 'bar';
             //bitmap.addEventListener("click", function (event) { alert(event.target.foo); });
             bitmap.addEventListener("click", function (event) {
-                let canvas = document.getElementById("canvas");
+                //let canvas = document.getElementById("canvas");
 
                 let link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
