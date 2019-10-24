@@ -124,7 +124,6 @@
 
         var canvasData = null;
 
-
         // html2canvas実行
         function screenshotHtml() {
             html2canvas(document.body, {
@@ -145,7 +144,7 @@
             a.href = dataUrl; //href -- 指定したURLへ移動　ダウンロード用URLセット
             a.download = 'helloween_A.png'; //ファイル名セット
             a.dispatchEvent(event); //イベント発火
-            console.log("------------------");
+            alert("-----------------ば!!");
         }
     </script>
 
