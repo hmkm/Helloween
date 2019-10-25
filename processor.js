@@ -12,6 +12,7 @@ let processor = {
 
         this.video = document.getElementById("video");
         this.img = document.getElementById("img");
+        this.movie = document.getElementById("movie");
         //this.button = document.getElementById("button");
         //this.button = document.getElementById("button");
         //this.button.addEventListener('click', function () {
@@ -29,10 +30,21 @@ let processor = {
     },
   
     computeFrame: function () {
-        //this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
         this.ctx1.drawImage(this.video, 0, 0, window.innerWidth, window.innerHeight);
         this.ctx1.drawImage(this.img, 0, 0, window.innerWidth, window.innerHeight - 18);
-        //this.ctx1.drawImage(this.button, this.width / 4, this.height/2-100, 50, 50);
+        this.ctx1.drawImage(this.movie, 0, 0, window.innerWidth, window.innerHeight);
+
+        let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+        let l = frame.data.length / 4;
+
+        for (let i = 0; i < l; i++) {
+            let r = frame.data[i * 4 + 0];
+            let g = frame.data[i * 4 + 1];
+            let b = frame.data[i * 4 + 2];
+            if (g > 100 && r > 100 && b < 43)
+                frame.data[i * 4 + 3] = 0;
+        }
+        this.ctx1.putImageData(frame, 0, 0);
         return;
     }
   };
