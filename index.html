@@ -85,16 +85,12 @@
     <script>
         (function () {
             var canvas = document.getElementById('canvas');
-            var canvas2 = document.getElementById('canvas2');
             var container = document.getElementById('wrap');
             sizing();
 
             function sizing() {
                 canvas.height = container.offsetHeight;
                 canvas.width = container.offsetWidth;
-                canvas2.height = container.offsetHeight;
-                canvas2.width = container.offsetWidth;
-
             }
 
             window.addEventListener('resize', function () {
