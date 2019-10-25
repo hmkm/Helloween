@@ -27,8 +27,8 @@ function cameraStart() {
 cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth*2;
     cameraSensor.height = cameraView.videoHeight*2;
-    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0,960,1280)   
-    cameraSensor.getContext("2d").drawImage(cameraFrame, 0, 0, cameraView.videoWidth*2, cameraView.videoHeight*2)   
+    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0)   
+    cameraSensor.getContext("2d").drawImage(cameraFrame, 0, 0, cameraView.videoWidth, cameraView.videoHeight)   
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
     //cancelTimer();
