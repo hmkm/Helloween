@@ -24,6 +24,8 @@ let processor = {
 
         this.c1 = document.getElementById("canvas");
         this.ctx1 = this.c1.getContext("2d");
+        this.c2 = document.getElementById("canvas2");
+        this.ctx2 = this.c2.getContext("2d");
         let self = this;
         this.video.addEventListener('play', function () {
             self.width = self.video.videoWidth;
@@ -35,9 +37,9 @@ let processor = {
     computeFrame: function () {
         this.ctx1.drawImage(this.video, 0, 0, window.innerWidth, window.innerHeight);
         this.ctx1.drawImage(this.img, 0, 0, window.innerWidth, window.innerHeight - 18);
-        //this.ctx1.drawImage(this.movie, 0, 0, window.innerWidth, window.innerHeight);
+        this.ctx2.drawImage(this.movie, 1000, 1000, this.width, this.height);
 
-        let frame = this.movie.getImageData(0, 0, this.width, this.height);
+        let frame = this.ctx2.getImageData(1000, 1000, this.width, this.height);
         let l = frame.data.length / 4;
 
         for (let i = 0; i < l; i++) {
