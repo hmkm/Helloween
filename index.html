@@ -1,175 +1,28 @@
-﻿<!DOCTYPE html>
-<html>
+<html lang=”en”>
 <head>
     <meta charset="utf-8">
-    <title>browserCamamera sample01</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        video {
-            width: 0.1%;
-            height: 0.1%;
-            object-fit: fill;
-        }
-
-        #wrap{
-            width = 100%;
-            height = 100%;
-        }
-
-        #button {
-            display: block;
-            cursor: pointer;
-        }
-
-        img.button:active {
-            position: relative;
-            top: 3px;
-        }
-    </style>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Name of your awesome camera app -->
+    <title>Camera App</title>
+    <!-- Link to your main style sheet-->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="button" class="button" src="button.png" width="0" height="0" ontouchstart="" />
-
-    <div id="wrap">
-        <video id="video" autoplay playsinline="true"></video>
-        <video id="movie" src="logo.mp4" autoplay="true" loop="true"></video>
-        <canvas id="canvas" style="background-color:blue;"></canvas>
-        <canvas id="canvas2" style="background-color:red;"></canvas>
-    </div>
-    <script>
-        var video = document.getElementById('video');
-        var constraints = {
-            audio: false,
-            video: {
-                // スマホのバックカメラを使用
-                facingMode: 'environment'
-            }
-        };
-        //  カメラの映像を取得
-        navigator.mediaDevices.getUserMedia(constraints)
-            .then((stream) => {
-                video.srcObject = stream;
-            })
-            .catch((err) => {
-                window.alert(err.name + ': ' + err.message);
-            });
-
-        function revCamera() {
-            if (num % 2 == 0) {
-                constraints = { video: { facingMode: 'environment' } };
-                //  カメラの映像をあっち向きに
-                navigator.mediaDevices.getUserMedia(constraints)
-                    .then((stream) => {
-                        video.srcObject = stream;
-                    })
-                    .catch((err) => {
-                        window.alert(err.name + ': ' + err.message);
-                    });
-            } else {
-                constraints = { video: { facingMode: 'user' } };
-                //  カメラの映像をこっち向きに
-                navigator.mediaDevices.getUserMedia(constraints)
-                    .then((stream) => {
-                        video.srcObject = stream;
-                    })
-                    .catch((err) => {
-                        window.alert(err.name + ': ' + err.message);
-                    });
-            }
-        }
-    </script>
-
-    <script>
-        (function () {
-            var canvas = document.getElementById('canvas');
-            var container = document.getElementById('wrap');
-            sizing();
-
-            function sizing() {
-                canvas.height = container.offsetHeight;
-                canvas.width = container.offsetWidth;
-            }
-
-            window.addEventListener('resize', function () {
-                (!window.requestAnimationFrame) ? setTimeout(sizing, 300) : window.requestAnimationFrame(sizing);
-            });
-        })();
-    </script>
-
-    <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
-    <script>
-        var num = 2;
-
-        if (num >= 100) {
-            num = 0;
-        }
-
-        function chgImg() {
-
-            if (num % 2 == 0) {
-                document.getElementById("img").src = "scared.png";
-                num++;
-            } else {
-                document.getElementById("img").src = "happy.png";
-                num++;
-            }
-        }
-
-        //クリックで画面キャプチャ
-        document.getElementById("button").onclick = (event) => {
-            let canvas = document.getElementById("canvas");
-
-            let link = document.createElement("a");
-            link.href = canvas.toDataURL("image/png");
-            link.download = "helloween_A.png";
-            link.click();
-        }
-    </script>
-
-    <script type="text/javascript" src="processor.js"></script>
-
-    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="//code.createjs.com/easeljs-0.8.1.min.js"></script>
-    <script type="text/javascript" src="//code.createjs.com/preloadjs-0.6.1.min.js"></script>
-    <script>
-
-        $(document).ready(function () {
-            // 画像を読み込み
-            var loader = new createjs.LoadQueue();
-            loader.on("complete", completePreload, this);
-            loader.loadManifest([{ id: "button", src: "button.png" }]);
-        });
-
-            // 画像読み込み完了
-        var completePreload = function (event)
-        {
-            // 画像インスタンス
-            var image = event.target.getResult("button");
-
-            // canvasを取得
-            var stage = new createjs.Stage("canvas");
-
-            // 画像をセット
-            var bitmap = new createjs.Bitmap(image);
-            bitmap.foo = 'bar';
-            bitmap.addEventListener("click", function (event) {
-                let link = document.createElement("a");
-                link.href = canvas.toDataURL("image/png");
-                link.download = "helloween_A.png";
-                link.click(); });
-            stage.addChild(bitmap);
-
-            // canvas更新
-            stage.update();
-        }
-    </script>-->
+    <!-- Camera -->
+    <main id="camera">
+        <!-- Camera sensor -->
+        <canvas id="camera--sensor"></canvas>       
+        <!-- Camera view -->
+        <video id="camera--view" autoplay playsinline></video>
+        <!-- Camera output -->
+        <img src="//:0" alt="" id="camera--output">
+        <!-- Camera frame -->
+        <img id="camera--frame" src="happy.png">
+        <!-- Camera trigger -->
+        <button id="camera--trigger">Take a picture</button>
+    </main>
+    <!-- Reference to your JavaScript file -->
+    <script src="app.js"></script>
 </body>
 </html>
