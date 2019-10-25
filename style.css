@@ -24,7 +24,7 @@ html, body{
       bottom: 30px;
       left: calc(50% - 100px);
   }
-  .taken{
+  /*.taken{
       height: 100px!important;
       width: 100px!important;
       transition: all 0.5s ease-in;
@@ -33,4 +33,4 @@ html, body{
       top: 20px;
       right: 20px;
       z-index: 2;
-  }
+  }*/
