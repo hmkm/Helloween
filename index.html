@@ -33,7 +33,7 @@
 <body>
     <img id="button" class="button" src="button.png" width="0" height="0" ontouchstart="" />
 
-    <div>
+    <div id="wrap">
         <video id="video" autoplay playsinline="true"></video>
         <video id="movie" src="logo.mp4" autoplay="true" loop="true"></video>
         <canvas id="canvas" style="background-color:blue;"></canvas>
@@ -82,7 +82,7 @@
         }
     </script>
 
-    <!--<script>
+    <script>
         (function () {
             var canvas = document.getElementById('canvas');
             var canvas2 = document.getElementById('canvas2');
@@ -101,7 +101,7 @@
                 (!window.requestAnimationFrame) ? setTimeout(sizing, 300) : window.requestAnimationFrame(sizing);
             });
         })();
-    </script>-->
+    </script>
 
     <img id="img" onclick="chgImg()" src="happy.png" width="0" height="0" />
     <script>
