@@ -44,7 +44,7 @@ let processor = {
             let r = frame.data[i * 4 + 0];
             let g = frame.data[i * 4 + 1];
             let b = frame.data[i * 4 + 2];
-            if (g > 99 && r < 43 && b < 43)
+            if (g > 100 && r < 100 && b < 100)
                 frame.data[i * 4 + 3] = 0;
         }
         this.ctx1.putImageData(frame, 0, 0);
