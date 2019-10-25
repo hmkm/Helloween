@@ -48,7 +48,7 @@ function drawFrame(){
 }
 
 function cancelTimer() {
-    timeoutID = setTimeout(cancelTakenView, 3000, drawFrame);
+    timeoutID = setTimeout(cancelTakenView, 3000, cameraStart);
 }
 
 function cancelTakenView() {
