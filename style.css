@@ -8,7 +8,7 @@ html, body{
       position: fixed;
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
   }
   #camera--trigger{
       width: 200px;
