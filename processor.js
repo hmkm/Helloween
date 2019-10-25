@@ -47,7 +47,7 @@ let processor = {
             if (g > 100 && r < 100 && b < 100)
                 frame.data[i * 4 + 3] = 0;
         }
-        this.ctx1.putImageData(frame, 0, 0);
+        this.ctx1.putImageData(frame, 300, 300);
         return;
     }
   };
