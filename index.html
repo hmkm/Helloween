@@ -201,12 +201,17 @@
     <script type="text/javascript" src="//code.createjs.com/preloadjs-0.6.1.min.js"></script>
     <script>
 
-        $(document).ready(function () {
-            // 画像を読み込み
-            var loader = new createjs.LoadQueue();
-            loader.on("complete", completePreload, this);
-            loader.loadManifest([{ id: "button", src: "button.png" }]);
-        });
+        //$(document).ready(function () {
+        //    // 画像を読み込み
+        //    var loader = new createjs.LoadQueue();
+        //    loader.on("complete", completePreload, this);
+        //    loader.loadManifest([{ id: "button", src: "button.png" }]);
+        //});
+
+        // 画像を読み込み
+        var loader = new createjs.LoadQueue();
+        loader.on("complete", completePreload, this);
+        loader.loadManifest([{ id: "button", src: "button.png" }]);
 
             // 画像読み込み完了
         var completePreload = function (event)
