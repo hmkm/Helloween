@@ -31,6 +31,7 @@ cameraTrigger.onclick = function() {
     cameraSensor.getContext("2d").drawImage(cameraFrame, 0, 0, cameraView.videoWidth, cameraView.videoHeight)   
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
+    cancelTimer();
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
@@ -46,3 +47,11 @@ function drawFrame(){
     };
 }
 
+function cancelTimer() {
+    timeoutID = setTimeout(cancelTakenView, 3000);
+}
+
+function cancelTakenView() {
+    cameraOutput.classList.remove("taken")
+    clearTimeout(timeoutID);
+}
