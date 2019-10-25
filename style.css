@@ -5,9 +5,9 @@ html, body{
     width: 100%;
   }
   #camera, #camera--view, #camera--sensor, #camera--output, #camera--frame{
-      height: 100%;
+      position: fixed;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
   }
   #camera--trigger{
       width: 200px;
