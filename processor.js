@@ -39,7 +39,7 @@ let processor = {
         this.ctx1.drawImage(this.img, 0, 0, this.width, this.height);
         this.ctx2.drawImage(this.movie, 300, 300, this.width, this.height);
 
-        let frame = this.ctx1.getImageData(100, 100, this.width, this.height);
+        let frame = this.ctx2.getImageData(100, 100, this.width, this.height);
         let l = frame.data.length / 4;
 
         //クロマキー
