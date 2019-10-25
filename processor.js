@@ -28,8 +28,8 @@ let processor = {
         this.ctx2 = this.c2.getContext("2d");
         let self = this;
         this.video.addEventListener('play', function () {
-            self.width = self.video.videoWidth /2;
-            self.height = self.video.videoHeight /2;
+            self.width = self.video.videoWidth;
+            self.height = self.video.videoHeight;
             self.timerCallback();
         }, false);
     },
@@ -39,7 +39,7 @@ let processor = {
         this.ctx1.drawImage(this.img, 0, 0, this.width, this.height);
         this.ctx2.drawImage(this.movie, 300, 300, this.width, this.height);
 
-        let frame = this.ctx2.getImageData(100, 100, this.width, this.height);
+        let frame = this.ctx2.getImageData(300, 300, this.width, this.height);
         let l = frame.data.length / 4;
 
         //クロマキー
@@ -50,7 +50,7 @@ let processor = {
             if (g > 100 && r < 100 && b < 100)
                 frame.data[i * 4 + 3] = 0;
         }
-        this.ctx1.putImageData(frame, 200, 200);
+        this.ctx2.putImageData(frame, 300, 300);
         return;
     }
   };
