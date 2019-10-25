@@ -39,9 +39,10 @@ let processor = {
         //this.ctx1.drawImage(this.img, 0, 0, this.width, this.height);
         this.ctx1.drawImage(this.movie, 300, 300, this.width, this.height);
 
-        let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+        let frame = this.ctx1.getImageData(200, 200, this.width, this.height);
         let l = frame.data.length / 4;
 
+        //クロマキー
         for (let i = 0; i < l; i++) {
             let r = frame.data[i * 4 + 0];
             let g = frame.data[i * 4 + 1];
