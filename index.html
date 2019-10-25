@@ -19,11 +19,6 @@
             object-fit: fill;
         }
 
-        #wrap {
-            height: 100%;
-            width: 100%;
-        }
-
         #button {
             display: block;
             cursor: pointer;
@@ -38,9 +33,11 @@
 <body>
     <img id="button" class="button" src="button.png" width="0" height="0" ontouchstart="" />
 
-    <video id="video" autoplay playsinline="true"></video>
     <div>
-    <video id="movie" src="logo.mp4" autoplay="true" loop="true"></video>
+        <video id="video" autoplay playsinline="true"></video>
+        <video id="movie" src="logo.mp4" autoplay="true" loop="true"></video>
+        <canvas id="canvas" style="background-color:blue;"></canvas>
+        <canvas id="canvas2" style="background-color:red;"></canvas>
     </div>
     <script>
         var video = document.getElementById('video');
@@ -84,11 +81,6 @@
             }
         }
     </script>
-
-    <div id="wrap">
-        <canvas id="canvas" style="background-color:blue;"></canvas>
-        <canvas id="canvas2" style="background-color:red;"></canvas>
-    </div>
 
     <!--<script>
         (function () {
