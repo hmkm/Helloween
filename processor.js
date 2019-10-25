@@ -37,9 +37,9 @@ let processor = {
     computeFrame: function () {
         this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
         this.ctx1.drawImage(this.img, 0, 0, this.width, this.height);
-        this.ctx2.drawImage(this.movie, 400, 400, this.width, this.height);
+        this.ctx2.drawImage(this.movie, 300, 300, this.width, this.height);
 
-        let frame = this.ctx2.getImageData(400, 400, this.width, this.height);
+        let frame = this.ctx2.getImageData(300, 300, this.width, this.height);
         let l = frame.data.length / 4;
 
         //クロマキー
