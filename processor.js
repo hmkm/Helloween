@@ -37,7 +37,7 @@ let processor = {
     computeFrame: function () {
         this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
         this.ctx1.drawImage(this.img, 0, 0, this.width, this.height);
-        this.ctx1.drawImage(this.movie, 0, 0, this.width, this.height);
+        this.ctx1.drawImage(this.movie, -100, -100, this.width, this.height);
 
         let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
         let l = frame.data.length / 4;
